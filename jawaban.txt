@@ -1,0 +1,64 @@
+Jawaban soal 
+1. CREATE DATABASE myshop.
+
+2. CREATE TABLE users (
+    id_user INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR (255),
+    password VARCHAR (255)
+    );
+
+    CREATE TABLE categories (
+    id_categories INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    );
+
+    CREATE TABLE items (
+    id_items INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    description VARCHAR (255),
+    price INT;
+    stock INT;
+    id_categories INT;
+    FOREIGN KEY (id_category) REFERENCES categories (id_categories)
+    );
+
+3. INSERT INTO users(id,name,email,password) 
+    VALUES 
+        ("", "John Doe", "jhon@doe.com", "jhon123"),
+        ("", "Jane Doe", "jane@doe.com", "jane123");
+
+    INSERT INTO categories (id,name)
+    VALUES
+        ("", "gadget"),
+        ("", "cloth"),
+        ("", "men"),
+        ("", "women"),
+        ("", "branded");
+
+    INSERT INTO  items (id,name,description,price,stock,id_categories)
+    VALUES
+        ("","sumsang b50", "hape keren dari merek sumsang",3000000, 50, 1),
+        ("","Uniklooh", "baju keren dari merek ternama",100000, 100, 2),
+        ("","IMHO Watch", "jam tangan anak yang jujur banget",500000, 50, 5);
+    
+4.  a.
+    SELECT id_user,name,email FROM users;
+
+    b. (point1)
+    SELECT * FROM items WHERE price > 1000000;
+        (point2)
+    SELECT * FROM items WHERE name like"%uniklo%";
+
+    c. 
+    SELECT items.name,items.description,categories.name
+    FROM items
+    JOIN categories ON items. id_items= categories.id_categories;
+
+5. UPDATE items
+    SET price = 2500000
+    WHERE id_items = 1;
+
+      
+
+
